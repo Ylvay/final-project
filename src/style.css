@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* aquí pondré propriedades de css si quiero y la directiva @apply de tailwind para agrupar clases */
