@@ -4,3 +4,22 @@
 
 
 /* aquí pondré propriedades de css si quiero y la directiva @apply de tailwind para agrupar clases */
+
+
+h1 {
+    font-size:xx-large;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  h2 {
+    font-size: large;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h3 {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  body {
+    font-family:'Open Sans', sans-serif; ;
+  }
