@@ -17,7 +17,12 @@
 </form>
 
 <!-- Grid with book results -->
-<div v-if="bookExists && bookExists.items.length > 0" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full">
+<div v-if="!bookSearchDone" class="text-center py-8">
+  <p>Search for a Book</p>
+</div>
+
+<div v-else>
+  <div v-if="bookExists && bookExists.items.length > 0" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full">
     <!-- Loop over books and display each one -->
     <div 
       v-for="book in bookExists.items" :key="book.id" class="border p-4 flex flex-col items-center gap-1">
@@ -36,11 +41,11 @@
 </div>
 
 
-<!-- Display message when no books are found -->
-<div v-else class="text-center py-8">
+  <!-- Display message when no books are found -->
+  <div v-else class="text-center py-8">
     <p>No books found. Try searching for something else.</p>
   </div>
-
+</div>
 
 </template>
 
@@ -51,6 +56,7 @@ export default {
     return {
       bookSearch: '',
       bookExists: null,
+      bookSearchDone: false,
       error: "",
       isClicked: false, // State for the button
       buttonText: 'Add to my list', // Initial text of the button
@@ -77,6 +83,7 @@ export default {
         })
         .then(data => {
           this.bookExists = data;
+          this.bookSearchDone = true;
         })
         .catch(error => {
           console.log(error)
