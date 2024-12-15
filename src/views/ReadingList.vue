@@ -17,6 +17,9 @@
     </button>
   </form>
 
+
+  <p>Your list {{ readingListStore.booksCount }}</p>
+
   <!-- Grid with book results -->
   <div v-if="!bookSearchDone" class="text-center py-8">
     <p>Search for a Book</p>
@@ -54,8 +57,15 @@
 </template>
 
 <script>
+import { useReadingListStore } from '../stores/ReadingListStore'
+import { mapStores } from 'pinia'
+
 export default {
   name: "App",
+  computed: {
+    ...mapStores(useReadingListStore)
+  },
+
   data() {
     return {
       bookSearch: '',
@@ -67,7 +77,7 @@ export default {
   methods: {
     toggleClicked(book) {
       book.isClicked = !book.isClicked;
-      // TODO Send to pinia => book
+      this.readingListStore.addBook(book)
     },
 
 
