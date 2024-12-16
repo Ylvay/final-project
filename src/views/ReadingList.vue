@@ -73,7 +73,7 @@
           book.saleInfo?.listPrice?.currencyCode }}</p>
 
         <!-- Button to add to reading list -->
-        <button :class="[
+        <button :disabled="book.isClicked" :class="[
           book.isClicked ?
             'py-1 px-8 rounded-lg bg-white border-4 border-green-800 text-green-800' :
             'py-1 px-8 rounded-lg text-white border-4 border-green-800 bg-green-800']" @click="toggleClicked(book)">
@@ -125,6 +125,7 @@ export default {
     removeBook(book) {
       book.isClicked = !book.isClicked;
       this.readingListStore.deleteBook(book)
+      this.bookExists.items.find(bookRemoved => bookRemoved.id === book.id).isClicked = false;
     },
 
 
