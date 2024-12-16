@@ -17,9 +17,22 @@ h1 {
   }
 
   h3 {
+    font-size: medium;
     font-family: 'Open Sans', sans-serif;
   }
 
   body {
     font-family:'Open Sans', sans-serif; ;
   }
+
+  .text-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Vertically center */
+    align-items: center;      /* Horizontally center */
+  }
+  
+  img {
+    margin-bottom: 20px;  /* Optional: Adds space between image and text */
+  }
+  

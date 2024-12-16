@@ -1,16 +1,54 @@
 <template>
   <div>
     <h3 class=" bg-yellow-100 px-8">Shop / Reading List</h3>
-    <h1 class="bg-yellow-100 text-4xl py-4 px-8">Create Your Reading List for 2025</h1>
-    <p class="bg-yellow-100 px-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quis natus non
+    <h1 class="bg-yellow-100 text-4xl py-4 px-8">Your 2025 Reading List</h1>
+    <p class="bg-yellow-100 px-8 py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quis natus
+      non
       nam nostrum reprehenderit voluptatem quod cumque ratione, laudantium fugiat deleniti obcaecati, eum ipsum pariatur
       dicta? Voluptates, unde illum.</p>
   </div>
 
+
+  <!-- Section with current books in the list
+  <h2 class="px-8 pt-16 pb-8 text-center"> You currently have {{ readingListStore.booksCount }} books lined up for
+    next
+    year
+  </h2> -->
+
+
+  <div v-if="readingListStore.books.length === 0 && !bookSearchDone" class="text-center align-center">
+    <img src="../assets/images/books.jpg" alt="books" height="200px" width="200px">
+    <p>Search for a book below to start creating your list</p>
+  </div>
+
+  <div v-else class="px-8 pt-16 pb-8 text-center"> You currently have {{ readingListStore.booksCount }} books lined up
+    for next year </div>
+
+
+  <!-- <p>{{ readingListStore.booksInfo }}</p> -->
+
+  <!-- Reading list -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full py-8">
+    <div v-for="book in readingListStore.booksInfo" :key="book.id" class="book-item text-center">
+      <!-- <img v-if="book.volumeInfo.imageLinks.smallThumbnail" :src="book.volumeInfo.imageLinks.smallThumbnail"
+        alt="book cover" class="my-2" /> -->
+      <h2 class="text-l font-semibold body text-center"> {{ book.title }} </h2>
+      <p class="font-regular body text-center"> {{ book.author?.join(', ') }}</p>
+
+      <button class="py-2 px-8 rounded-lg bg-white text-red-800" @click="removeBook(book)">Delete
+        from list</button>
+
+
+
+    </div>
+  </div>
+
+
+
   <!-- Section for searching books and adding to reading list -->
 
-  <form class=" bg-yellow-100 flex flex-col items-center gap-5 py-8" @submit.prevent="getBooks">
-    <input class="rounded-lg bg-white px-4 py-2 text-black" placeholder="Book title" v-model="bookSearch" />
+  <form class=" bg-white flex flex-col items-center gap-5 py-8" @submit.prevent="getBooks">
+    <input class="rounded-lg bg-gray-200 px-4 py-2 text-black" placeholder="Book title" v-model="bookSearch" />
 
     <button class="bg-green-800 py-2 px-8 rounded-lg hover:bg-green-900 text-white">
       Search for a book
@@ -18,11 +56,9 @@
   </form>
 
 
-  <p>Your list {{ readingListStore.booksCount }}</p>
-
   <!-- Grid with book results -->
   <div v-if="!bookSearchDone" class="text-center py-8">
-    <p>Search for a Book</p>
+    <p></p>
   </div>
 
   <div v-else>
@@ -74,10 +110,22 @@ export default {
       error: ""
     };
   },
+
+  mounted() {
+    console.log('Current books in reading list:', this.readingListStore.books);
+  },
+
+
+
   methods: {
     toggleClicked(book) {
       book.isClicked = !book.isClicked;
       this.readingListStore.addBook(book)
+    },
+
+    removeBook(book) {
+      book.isClicked = !book.isClicked;
+      this.readingListStore.deleteBook(book)
     },
 
 
