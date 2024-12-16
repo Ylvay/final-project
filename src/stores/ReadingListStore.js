@@ -1,5 +1,4 @@
-import { defineStore } from 'pinia';
-import ReadingList from '../views/ReadingList.vue';
+import { defineStore } from 'pinia'
 
 export const useReadingListStore = defineStore('readingList', {
   state: () => ({

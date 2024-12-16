@@ -30,8 +30,7 @@
   <!-- Reading list -->
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full py-8">
     <div v-for="book in readingListStore.booksInfo" :key="book.id" class="book-item text-center">
-      <!-- <img v-if="book.volumeInfo.imageLinks.smallThumbnail" :src="book.volumeInfo.imageLinks.smallThumbnail"
-        alt="book cover" class="my-2" /> -->
+      <img v-if="book.image" :src="book.image" alt="book cover" class="my-2" />
       <h2 class="text-l font-semibold body text-center"> {{ book.title }} </h2>
       <p class="font-regular body text-center"> {{ book.author?.join(', ') }}</p>
 
