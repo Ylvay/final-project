@@ -28,7 +28,7 @@
             </p>
 
             <!-- Button to add to reading list -->
-            <button :class="[
+            <button :disabled="book.isClicked" :class="[
                 book.isClicked ?
                     'py-1 px-8 rounded-lg bg-white border-2 border-green-800 text-green-800' :
                     'py-1 px-8 rounded-lg text-white border-2 border-green-800 bg-green-800']"
