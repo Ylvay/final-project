@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-yellow-100 px-8 flex flex-row justify-between py-4 items-center">
+  <div class="bg-yellow-100 px-8 flex flex-row justify-between pt-8 pb-4 items-center">
     <h1 class="text-4xl"><router-link to="/Home">GoodBooks.com</router-link></h1>
     <ul class="flex flex-row gap-4">
       <li class="h2">EN/ES</li>

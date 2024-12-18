@@ -24,7 +24,7 @@
       <!-- Button to add to reading list -->
       <button :disabled="book.isClicked" :class="[
         book.isClicked ?
-          'py-1 px-8 rounded-lg bg-white border-2 border-green-800 text-green-800' :
+          'py-1 px-8 rounded-lg bg-gray-100 border-2 border-gray-400 text-gray-400' :
           'py-1 px-8 rounded-lg text-white border-2 border-green-800 bg-green-800']" @click="toggleClicked(book)">
         {{ book.isClicked ? 'Added to my list' : 'Add to my list' }}
       </button>

@@ -2,10 +2,11 @@
   <div>
     <h3 class=" bg-yellow-100 px-8">Shop / Reading List</h3>
     <h1 class="bg-yellow-100 text-4xl py-4 px-8">Your 2025 Reading List</h1>
-    <p class="bg-yellow-100 px-8 py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quis natus
-      non
-      nam nostrum reprehenderit voluptatem quod cumque ratione, laudantium fugiat deleniti obcaecati, eum ipsum pariatur
-      dicta? Voluptates, unde illum.</p>
+    <p class="bg-yellow-100 px-8 py-4">As we look ahead to 2025, there's no better time to start planning your reading
+      journey. A well-curated reading list can help you explore new ideas, dive into thrilling adventures, or deepen
+      your knowledge in areas that inspire you. Whether you're aiming to read more classics, discover emerging voices,
+      or tackle specific genres, organizing your books ahead of time ensures that you’re never at a loss for a great
+      read.</p>
   </div>
 
 
@@ -21,26 +22,28 @@
     <p>Search for a book below to start creating your list</p>
   </div>
 
-  <div v-else class="px-8 pt-16 pb-8 text-center"> You currently have {{ readingListStore.booksCount }} books lined up
-    for next year </div>
+  <!-- <div v-else class="px-8 pt-16 pb-8 text-center"> You currently have {{ readingListStore.booksCount }} books lined up
+    for next year </div> -->
 
 
   <!-- <p>{{ readingListStore.booksInfo }}</p> -->
 
   <!-- Reading list -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full py-8">
-    <div v-for="book in readingListStore.booksInfo" :key="book.id" class="book-item text-center">
-      <img v-if="book.image" :src="book.image" alt="book cover" class="my-2" />
-      <h2 class="text-l font-semibold body text-center"> {{ book.title }} </h2>
-      <p class="font-regular body text-center"> {{ book.author?.join(', ') }}</p>
+  <div v-else class=" bg-yellow-100">
+    <!-- <h4 class="bg-orange-200 text-center pt-8 ">My 2025 in Books</h4> -->
+    <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-8 bg-yellow-100 mx-24">
+      <div v-for="book in readingListStore.booksInfo" :key="book.id" class="book-item text-center">
+        <img v-if="book.image" :src="book.image" alt="book cover" class="my-2" />
+        <h2 class="text-l font-semibold body text-center"> {{ book.title }} </h2>
+        <p class="font-regular body text-center"> {{ book.author?.join(', ') }}</p>
 
-      <button class="py-2 px-8 rounded-lg bg-white text-red-800" @click="removeBook(book)">Delete
-        from list</button>
+        <button class="py-2 px-8 rounded-lg text-red-800" @click="removeBook(book)">Delete
+          from list</button>
 
-
-
+      </div>
     </div>
   </div>
+
 
 
 
@@ -75,7 +78,7 @@
         <!-- Button to add to reading list -->
         <button :disabled="book.isClicked" :class="[
           book.isClicked ?
-            'py-1 px-8 rounded-lg bg-white border-4 border-green-800 text-green-800' :
+            'py-1 px-8 rounded-lg bg-gray-100 border-2 border-gray-400 text-gray-400' :
             'py-1 px-8 rounded-lg text-white border-4 border-green-800 bg-green-800']" @click="toggleClicked(book)">
           {{ book.isClicked ? 'Added to my list' : 'Add to my list' }}
         </button>

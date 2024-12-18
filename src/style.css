@@ -7,8 +7,13 @@
 
 
 h1 {
-    font-size:xx-large;
+    font-size:x-large;
     font-family: 'Montserrat', sans-serif;
+  }
+
+  h5 {
+    font-size: xx-large;
+    font-family:'Montserrat', sans-serif;
   }
 
   h2 {
@@ -19,6 +24,11 @@ h1 {
   h3 {
     font-size: medium;
     font-family: 'Open Sans', sans-serif;
+  }
+
+  h4 {
+    font-size: xx-large;
+    font-family: 'Calligraffitti', sans-serif;
   }
 
   body {
@@ -35,4 +45,11 @@ h1 {
   img {
     margin-bottom: 20px;  /* Optional: Adds space between image and text */
   }
+
+  .calligraffitti-regular {
+    font-family: "Calligraffitti", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
   

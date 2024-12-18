@@ -4,9 +4,10 @@
     <div class="flex flex-row pb-8">
         <div class="flex flex-col justify-center text-center gap-4">
             <h1 class="px-8"> Create Your Reading List for 2025 </h1>
-            <h2 class="px-8">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae consectetur voluptas omnis
-                veniam architecto et rerum hic accusantium earum, quos ipsum corporis nam ipsam, corrupti sapiente
-                voluptate dolorem, molestiae minima?</h2>
+            <h2 class="px-8">As we look ahead to 2025, there's no better time to start planning your reading
+                journey. A well-curated reading list can help you explore new ideas, dive into thrilling adventures, or
+                deepen
+                your knowledge in areas that inspire you. </h2>
             <button class="bg-green-800 text-white rounded-lg py-1 px-8"><router-link to="/ReadingList">Create
                     List</router-link></button>
         </div>
